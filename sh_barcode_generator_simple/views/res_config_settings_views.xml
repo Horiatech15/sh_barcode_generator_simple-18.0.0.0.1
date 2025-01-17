@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sh_barcode_generator_res_config_settings_form" model="ir.ui.view">
+        <field name="name">sh.barcode.generator.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+        <div id="languages" position="after">
+                <block title="Barcode Generator Configuration" name="barcode_generator_Configuration" groups="sh_barcode_generator_simple.group_barcode_generator">
+                    <setting>
+                        <field name="generate_barcode_on_product" />
+                    </setting>
+                    <setting>
+                        <field name="sh_barcode_type" />
+                    </setting>
+                </block>
+        </div>
+        </field>
+    </record>
+</odoo>
