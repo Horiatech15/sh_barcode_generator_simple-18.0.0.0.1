@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="group_show_configuration_menu" model="res.groups">
+			<field name="name">Show Configuration Menu</field>
+			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]"/>
+		</record>
+
+		<record id="group_show_modules_menu" model="res.groups">
+			<field name="name">Show Modules Menu</field>
+			<field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]"/>
+		</record>
+
+	</data>
+	
+ 	<menuitem id="base.menu_management"
+	name="Apps" sequence="500" web_icon="base,static/description/modules.png"
+	groups="sh_all_in_one_debranding.group_show_modules_menu"/>
+
+</odoo>

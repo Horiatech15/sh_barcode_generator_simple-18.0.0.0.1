@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sh_web_layout" name="Favicon Layout"
+        inherit_id="web.layout" priority="300">
+        <xpath expr="//link" position="replace">
+            <t t-set="company_id" t-value="request.env.company.id" />
+            <t t-set="logo_path" t-value="'/web/image/res.company/' + str(company_id) + '/logo_web'" />
+            <link type="image/x-icon" rel="shortcut icon" t-att-href="logo_path" />
+        </xpath>
+    </template>
+</odoo>

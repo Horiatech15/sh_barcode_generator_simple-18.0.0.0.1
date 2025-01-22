@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<templates>
+    <t t-name="website.Configurator.WelcomeScreen" t-inherit="website.Configurator.WelcomeScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_configurator_odoo_logo')]" position="replace">
+            <t t-set="logo_path" t-value="'/web/image/res.company/' + companyService.currentCompany.id + '/logo_web'" />
+            <img class="mt-4 ms-4"  t-att-src="logo_path" t-att-alt="company_name" style="height: 50px; width: 145px;" />
+        </xpath>
+    </t>
+</templates>

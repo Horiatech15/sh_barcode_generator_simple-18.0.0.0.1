@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	 <!-- <function model="ir.ui.view" name="_debrand_view" /> -->
+	<template id="fevicon_icon_template" inherit_id="web.layout">
+	       <!-- <xpath expr="//link[@rel='shortcut icon']" position="replace">
+	               <link rel="shortcut icon" href="/fevicon.ico" type="image/x-icon"/>
+	       </xpath> -->
+			<xpath expr="//title" position="replace">
+				<t t-set="sh_backend_debranding_rec" t-value="request.env['sh.debranding.config'].sudo().search([],limit=1)" />
+				<title t-esc="title or sh_backend_debranding_rec.name"/>
+         	</xpath>
+	    </template>
+	    
+	    
+	<template id="sh_portal_record_sidebar" inherit_id="portal.portal_record_sidebar">
+		<xpath expr="//div[@id='sidebar_content']//div[hasclass('text-muted')]" position="replace">
+			<div class="d-none d-lg-block mt-5 small text-center text-muted">
+				Powered by <a target="_blank" href="/company_url">
+				<t t-as="debranding" t-foreach="request.env['sh.debranding.config'].sudo().search([],limit=1)">
+					<t t-esc="debranding.name"/>
+				</t>
+				</a>
+			</div>
+		</xpath>
+    </template>
+
+
+	<!-- New Offline Feature  -->
+	<template id="webclient_offline" inherit_id="web.webclient_offline">
+		<xpath expr="//div[hasclass('card')]" position="replace">
+			<div class="card">
+            </div>
+		</xpath>
+    </template>
+	
+	
+</odoo>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="sh_web_login_layout" name="Login Layout" inherit_id="web.login_layout">
+		<xpath expr="//a[@href='https://www.odoo.com?utm_source=db&amp;utm_medium=auth']" position="replace">
+			<t t-set="system_name" t-value="request.env['sh.debranding.config'].sudo().search([])"/>
+			<a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span><t t-esc="system_name.name"/></span></a>
+		</xpath>
+	
+	</template>
+	 <record id="sh_debranding_companty_form_inhrit" model="ir.ui.view">
+        <field name="name">res.company.form.inh</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+        	<field name="website" position="replace">
+        		<field name="website" string="Website" widget="url" placeholder="e.g. https://www.example.com"/>
+        	</field>
+       </field>
+     </record>
+     
+      <record id="sh_debranding_partner_form_inhrit" model="ir.ui.view">
+        <field name="name">res.partner.form.inh</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+        	<field name="website" position="replace">
+        		<field name="website" string="Website" widget="url" placeholder="e.g. https://www.example.com"/>
+        	</field>
+       </field>
+     </record>
+
+    
+    <record id="sh_debranding_config_view_form" model="ir.ui.view">
+        <field name="name">sh.debranding.config.form</field>
+        <field name="model">sh.debranding.config</field>
+        <field name="arch" type="xml">
+            <form string="Debranding Configuration" create="false" delete="false" copy="false">
+               
+                    <group string="General Configuration">
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="url" required="1"/>
+                            <!-- <field name="favicon" widget="image" class="oe_avatar" /> -->
+                        </group>
+                        <group>
+                            <field name="bot_user" required="1"/>
+                            <field name="bot_user_login" required="1"/>
+                            <field name="avatar" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                     <group string="URL Configuration">
+                        <group>
+                           <field name="show_doc_url"/>
+                               <field name="show_support_url" />
+                            <field name="show_account_url"/>
+                            
+                        </group>
+                        <group>
+                            <!-- <field name="doc_url" attrs="{'invisible':[('show_doc_url','=',False)],'required':[('show_doc_url','=',True)]}"/> -->
+                            <field name="doc_url" invisible="not show_doc_url" required="show_doc_url"/>
+                             <!-- <field name="support_url" attrs="{'invisible':[('show_support_url','=',False)],'required':[('show_support_url','=',True)]}"/> -->
+                             <field name="support_url" invisible="not show_support_url" required="show_support_url"/>
+                            <!-- <field name="online_url" attrs="{'invisible':[('show_account_url','=',False)],'required':[('show_account_url','=',True)]}"/> -->
+                            <field name="online_url" invisible="not show_account_url" required="show_account_url"/>
+                            
+                        </group>
+                    </group>
+                  
+            </form>
+        </field>
+    </record>
+
+ 
+    <!-- Actions -->
+    <record id="sh_debranding_config_action" model="ir.actions.act_window">
+        <field name="name">Debranding Configuration</field>
+        <field name="res_model">sh.debranding.config</field>
+        <field name='view_mode'>form</field>
+        <field name="res_id">1</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="sh_debranding_config_root_menu"
+              name="Debranding Configuration"
+              parent="base.menu_administration"
+              action="sh_debranding_config_action"
+              groups="sh_all_in_one_debranding.group_show_configuration_menu"
+              sequence="10"/>
+
+  
+</odoo>

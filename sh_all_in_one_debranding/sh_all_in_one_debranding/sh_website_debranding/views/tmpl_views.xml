@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!--Offline template-->
+	<template id="sh_website_debranding_offline_template" name="Offline template inherit" inherit_id="web.webclient_offline">
+		<xpath expr="//div[hasclass('card')]" position="replace">
+			<div class="card">
+            </div>
+		</xpath>
+	</template>
+
+	<!-- powered by message -->
+	<template id='sh_website_debranding_promotion_message' inherit_id='web.brand_promotion_message' name='Website Promotion Message'>
+		<xpath expr="//t[@t-set='odoo_logo']" position="replace">
+			<t t-set='odoo_logo'>
+				<t t-set='debranding' t-value="request.env['sh.debranding.config'].sudo().search([],limit=1)" />
+				<a target="_blank" t-attf-href="#{debranding.url}" class="badge badge-light">
+					<img alt="None" t-att-src="image_data_uri(debranding.favicon)" style="height: 1em; vertical-align: baseline;" />
+				</a>
+			</t>
+		</xpath>
+	</template>
+
+	<template id="sh_website_debranding_promotion" name="Website Promotion" inherit_id="web.brand_promotion">
+		<xpath expr="//div[hasclass('o_brand_promotion')]" position="replace">
+			<div class="o_brand_promotion"></div>
+		</xpath>
+	</template>
+
+
+</odoo>

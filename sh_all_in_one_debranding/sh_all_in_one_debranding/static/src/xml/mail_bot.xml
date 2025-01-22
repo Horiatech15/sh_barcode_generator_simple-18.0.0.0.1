@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+	<!--
+        @param {mail.NotificationAlert} widget
+    -->
+	<t t-extend="mail.NotificationAlert">
+		<t t-jquery="center" t-operation="replace">
+			<center t-if="widget.isNotificationBlocked" class="o_notification_alert alert alert-primary">
+		           Push notifications have been blocked. Go to your browser settings to allow them.
+			</center>
+		</t>
+	</t>
+
+
+	<t t-name="UserMenu.Actions">
+		<a role="menuitem" href="#" data-menu="documentation" class="dropdown-item">Documentation</a>
+		<a role="menuitem" href="#" data-menu="support" class="dropdown-item">Support</a>
+		<div role="separator" class="dropdown-divider"/>
+		<a role="menuitem" href="#" data-menu="settings" class="dropdown-item">Preferences</a>
+		<a role="menuitem" href="#" data-menu="account" class="dropdown-item">My Odoo.com account</a>
+		<a role="menuitem" href="#" data-menu="logout" class="dropdown-item">Log out</a>
+	</t>
+	<!-- <div t-extend='res_config_edition'>
+   	 <t t-jquery="#edition" t-operation="replace">
+        </t>
+    </div> -->
+
+</templates>

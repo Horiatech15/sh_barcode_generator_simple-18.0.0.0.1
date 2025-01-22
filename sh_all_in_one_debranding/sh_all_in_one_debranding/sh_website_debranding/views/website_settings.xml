@@ -1,0 +1,23 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.website.domain.change</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='website_domain']" position="replace">
+                <field name="website_domain"  title="Display this website when users visit this domain"/>
+            </xpath>
+
+            <xpath expr="//field[@name='favicon']" position="replace">
+                <field name="favicon" widget="image" class="float-start oe_avatar bg-view" invisible="1" />
+            </xpath>
+
+            <xpath expr="//app/block[1]/setting[2]/div[1]/div[3]/label" position="replace">
+                <label class="col-lg-3" string="Favicon" for="favicon" invisible="1"/>
+            </xpath>
+
+        </field>
+
+    </record>
+</odoo>

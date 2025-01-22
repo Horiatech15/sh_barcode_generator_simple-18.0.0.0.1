@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="brand_promotion_message_2" inherit_id="web.brand_promotion_message">
+        <xpath expr="//a" position="replace">
+            <t t-set="company_id" t-value="request.env.company.id" />
+            <t t-set="logo_path" t-value="'/web/image/res.company/' + str(company_id) + '/logo_web'" />
+            <t t-set="website" t-value="request.env.company.website"/>
+            <a target="_blank" t-att-href="website" class="badge text-bg-light">
+                <img t-att-src="logo_path" t-att-alt="request.env.company.name" width="62" height="20" />
+            </a>
+        </xpath>
+    </template>
+</odoo>

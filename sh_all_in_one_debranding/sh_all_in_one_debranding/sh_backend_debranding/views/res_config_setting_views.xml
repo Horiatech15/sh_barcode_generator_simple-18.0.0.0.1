@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- RES.USER FORM VIEW -->
+    <record id="sh_hide_button_res_config_form" model="ir.ui.view">
+        <field name="name">sh.hide,button.res.config.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='about']" position="replace">
+               <div></div>
+            </xpath>
+            <xpath expr="//div[@id='iap_portal']" position="replace">
+               <div></div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id='sh_change_pos_title' inherit_id='point_of_sale.index'>
+        <xpath expr="//title" position="replace">
+            <t t-as="debranding" t-foreach="request.env['sh.debranding.config'].sudo().search([],limit=1)">
+                <title>
+                    <t t-esc="debranding.name"/>
+                </title>
+            </t>
+        </xpath>
+        <!-- <xpath expr="//link[7]" position="replace"> -->
+        <!-- <link rel="shortcut icon" t-att-href="x_icon or '/sh_base_debranding/static/src/img/favicon.ico'" type="image/x-icon"/> -->
+        <!-- </xpath> -->
+    </template>
+</odoo>

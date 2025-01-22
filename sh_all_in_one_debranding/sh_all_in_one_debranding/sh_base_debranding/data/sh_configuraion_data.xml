@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<record id="default_debaranding_config1" model="sh.debranding.config">
+	    	<field name="name">Softhealer</field>
+	    	<field name="url">www.softhealer.com</field>
+	    	<field name="bot_user">System User</field>
+	    	<field name="bot_user_login">system@example.com</field>
+	    	<field name="show_support_url" eval="True"/>
+	    	<field name="show_account_url" eval="True"/>
+	    	<field name="show_doc_url" eval="True"/>
+	    	<field name="support_url">http://www.softhealer.com</field>
+	    	<field name="doc_url">http://www.softhealer.com</field>
+	    	<field name="online_url">http://www.softhealer.com</field>
+	    	<!-- <field name="favicon" type="base64" file="sh_base_debranding/static/src/img/favicon.ico"/> -->
+	    	<!-- <field name="avatar" type="base64" file="sh_all_in_one_debranding/sh_base_debranding/static/src/img/sh.png"/> -->
+	    </record>
+	    
+	    <record id="base.partner_root" model="res.partner">
+	            <!-- <field name="image_1920" type="base64" file="sh_all_in_one_debranding/sh_base_debranding/static/src/img/sh.png"/> -->
+	     </record>
+		
+	</data>
+    
+</odoo>

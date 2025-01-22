@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="CustomerDisplay" t-inherit="point_of_sale.CustomerDisplay" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_customer_display_sidebar')]//div[hasclass('bottom-0')]" position="replace" >
+            <div class="position-absolute bottom-0 mb-4 d-none d-lg-flex align-items-center ps-3 pe-2 py-1 rounded-3 text-bg-dark small">Powered by 
+                <t t-if="this.sh_id" >
+                    <img style="width: 3rem;" t-attf-src="/web/image?model=sh.debranding.config&amp;id={{this.sh_id}}&amp;field=avatar" />
+                </t>
+                <t t-else="" >    
+                    <OdooLogo style="'width: 3rem;'" monochrome="true"/>
+                </t>
+            </div>
+        </xpath>
+         <xpath expr="//div[hasclass('o_customer_display_main')]//div[hasclass('bottom-0')]" position="replace" >
+            <div class=" bottom-0 mb-4 d-flex align-items-center ps-3 pe-2 py-1 rounded-3 small">Powered by  
+                <t t-if="this.sh_id" >
+                    <img style="width: 3rem;" t-attf-src="/web/image?model=sh.debranding.config&amp;id={{this.sh_id}}&amp;field=avatar" />
+                </t>
+                <t t-else="" >    
+                    <OdooLogo style="'width: 3rem;'"/>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>
